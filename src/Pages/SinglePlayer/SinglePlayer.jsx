@@ -4,6 +4,8 @@ import styles from "./SinglePlayer.module.css";
 var SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
+var AudioContext = window.AudioContext || window.webkitAudioContext;
+var audioContext = new AudioContext();
 
 class SinglePlayer extends Component {
   state = {
@@ -12,6 +14,7 @@ class SinglePlayer extends Component {
   };
 
   componentDidMount() {
+    console.log(audioContext);
     // var SpeechRecognition =
     //   window.SpeechRecognition || window.webkitSpeechRecognition;
     // var recognition = new SpeechRecognition();
@@ -36,12 +39,12 @@ class SinglePlayer extends Component {
   componentDidUpdate() {}
 
   startRec() {
-    recognition.start()
+    recognition.start();
     console.log("Listening");
   }
 
   stopRec() {
-    recognition.stop()
+    recognition.stop();
     console.log("Not Listening");
   }
 
